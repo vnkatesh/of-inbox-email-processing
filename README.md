@@ -13,7 +13,9 @@ Setup multiple mail drop boxees:
 ![Email settings](./readme-images/email-settings.png)
 
 Download the "Inbox Processing.omnijs" code.
-Open with text editor and modify emailTagMap and emailProjectMap. Ensure the tags/projects exist! [behavior without is not tested].
+Open with text editor and modify emailTagMap and emailProjectMap.
+Ensure the tags/projects exist! [behavior without is not tested].
+![Edit Code](./readme-images/edit-code.png)
 
 Now open the file with omnifocus and install it.
 
@@ -31,5 +33,5 @@ E.g.
 Once the emails reach my OF inbox, this is how it looks (expanded). 
 ![todo-email](./readme-images/before.png)
 
-I click on the "Inbox processor" toolbar menu item to process the inbox after selecting it all. This is the after (but before cleanup) image:
+Select all tasks -> Click on menubar "Inbox Processor" for the plugin to run. This is the after:
 ![todo-email](./readme-images/after.png)
