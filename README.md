@@ -3,7 +3,7 @@ Process inbox tasks based on OF's multiple mail drop addressess.
 
 **How I use it?**
 * I've created multiple mail drop addressess via https://manage.sync.omnigroup.com/
-* I've saved the email addressess as contacts in google GSuite. For e.g. as "WaitingFor" or "ToDo"
+* I've saved the email addressess as contacts in google work GSuite. For e.g. as "WaitingFor" or "ToDo"
 * Each email is specific for a single purpose. i.e personal email has it's own dedicated set of mail drop addressess.
 * I bcc the contacts when I send/reply to emails
 * The emails arrive in my OmniFocus Inbox
