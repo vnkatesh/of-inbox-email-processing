@@ -1,5 +1,16 @@
 # OmniFocus Multi Mail Drop Processing
-Process inbox tasks based on OF's multiple mail drop addressess. Add different tags, projects.
+Process inbox tasks based on OF's multiple mail drop addressess.
+
+**How I use it?**
+* I've created multiple mail drop addressess via https://manage.sync.omnigroup.com/
+* I've saved the email addressess as contacts in google GSuite. For e.g. as "WaitingFor" or "ToDo"
+* Each email is specific for a single purpose. i.e personal email has it's own dedicated set of mail drop addressess.
+* I bcc the contacts when I send/reply to emails
+* The emails arrive in my OmniFocus Inbox
+* I run this plugin
+* The plugin adds projects, tags, 'due' to the inbox items based on the drop in email address it was sent to.
+* I have additional custom perspectives to make life easier. 
+
 
 ### Caveats
 Hackily written script, works for me.
