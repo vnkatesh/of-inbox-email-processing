@@ -1,0 +1,91 @@
+/*{
+    "author": "Venkatesh Nandakumar",
+    "targets": ["omnifocus"],
+    "type": "action",
+    "identifier": "com.mycompany.InboxProcessor",
+    "version": "0.1",
+    "description": "Incoming Emails Processing",
+    "label": "Inbox Processor",
+    "mediumLabel": "Inbox Processor",
+    "paletteLabel": "Inbox Processor",
+}*/
+(() => {
+	var emailTagMap = new Map();
+	var emailProjectMap = new Map();
+
+	/** EMAIL TO TAG MAP - CHANGE THIS **/
+	emailTagMap['vnkatesh.xxxxx'] = ['Work', 'Company Name', '@Email', 'InboxProcessor', 'ToDo'];
+	emailTagMap['vnkatesh.yyyyy'] = ['Work', 'Company Name', '@Email', 'InboxProcessor', 'WaitingFor']
+
+	/** EMAIL TO PROJECT MAP - CHANGE THIS **/
+	emailProjectMap['vnkatesh.xxxxx'] = 'Work : Company Name : ToDo';
+	emailProjectMap['vnkatesh.yyyyy'] = 'Work : Company Name : WaitingFor';
+	
+	var SENT_TO_TEXT = "Sent to Mail Drop address ";
+	
+	function processTask(task) {
+		if(task.note!=null) {
+			var tags = getTags(task.note);
+			if(tags!=null) {
+				tags.forEach(function(tag) {
+					if(tag!=null) {
+						task.addTag(tag);
+					}
+				});
+			}
+			
+			var project = getProject(task.note);
+			if(project!=null) {
+				task.assignedContainer = project;
+				var now = new Date();
+				now.setHours(now.getHours() + 1);
+				task.dueDate = now;
+			}
+		}
+		return task.name;
+	}
+
+	
+	function getProject(note) {
+		var project;
+		for(var key in emailProjectMap) {
+			var value = emailProjectMap[key];
+			var searchText = SENT_TO_TEXT.concat(key);
+			if(note.includes(searchText)) {
+				return projectsMatching(value)[0];
+			}
+		}
+		return null;
+	}
+	
+	function getTags(note) {
+		var tags = [];
+		for(var key in emailTagMap) {
+			var value = emailTagMap[key];
+			var searchText = SENT_TO_TEXT.concat(key);
+			if(note.includes(searchText)) {
+				value.forEach(function(tagName) {
+					tags.push(tagNamed(tagName));	
+				});
+				return tags;
+			}
+		}
+		return null;
+	}
+	
+    var action = new PlugIn.Action(function(selection) {
+		
+		selection.tasks.forEach(function(task) {
+			console.log("Task processed", processTask(task));
+		});
+		
+		cleanUp();
+        console.log("Done with Inbox Processing");
+    });
+
+    action.validate = function(selection){
+		return (selection.tasks.length >= 1)
+    };
+        
+    return action;
+})();
