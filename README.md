@@ -1,6 +1,8 @@
 # OmniFocus Multi Mail Drop Processing
 Process inbox tasks based on OF's multiple mail drop addressess.
 
+Needs OmniFocus 3.8+, Tested on OSX
+
 **How I use it?**
 * I've created multiple mail drop addressess via https://manage.sync.omnigroup.com/
 * I've saved the email addressess as contacts in google work GSuite. For e.g. as "WaitingFor" or "ToDo"
