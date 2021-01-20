@@ -16,7 +16,6 @@ Process inbox tasks based on OF's multiple mail drop addressess.
 Hackily written script, works for me.
 Fork this code and do your own thing.
 If there is enough interest - I might put in effort to generalize it [and make this readme better]
-It also sets a +1 hour due date for all tasks.
 
 ### Setup
 Setup multiple mail drop boxees:
